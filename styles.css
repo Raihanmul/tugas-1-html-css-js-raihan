@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -15,6 +16,12 @@ body {
     justify-content: center;
     height: 100vh;
     font-family: 'Inter', serif;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 p {
@@ -23,6 +30,12 @@ p {
 
 img.logo {
     margin-bottom: 154px;
+    animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .search-box {
@@ -34,33 +47,52 @@ img.logo {
     align-items: center;
     width: fit-content;
     margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
 
-    input {
-        border: none;
-        font-size: 14px;
-        font-family: 'Inter', serif;
-        outline: none;
-    }
+.search-box input {
+    border: none;
+    font-size: 14px;
+    font-family: 'Inter', serif;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
 
-    button {
-        padding: 5px 12px;
-        background-color: black;
-        border-radius: 4px;
-        color: white;
-        border: none;
-        cursor: pointer;
+.search-box button {
+    padding: 5px 12px;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
 
-    }
+.search-box button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
 
-    .search {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+.search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        img {
-            cursor: pointer;
-        }
-    }
+.search img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search img:hover {
+    transform: scale(1.2);
+}
+
+.search-box.active input {
+    width: 200px;
+    visibility: visible;
+    opacity: 1;
+    padding: 5px;
 }
 
 .hidden {
@@ -68,3 +100,5 @@ img.logo {
     max-width: 420px;
     width: 100%;
 }
+
+/* make AI cuman buat transisi */
