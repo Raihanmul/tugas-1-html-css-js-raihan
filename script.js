@@ -1,6 +1,6 @@
 function showSearchBox() {
-    document.getElementById("searchInput").classList.toggle("hidden");
-    document.getElementById("searchBtn").classList.toggle("hidden");
+    const searchBox = document.querySelector(".search-box");
+    searchBox.classList.toggle("active");
 }
 
-document.getElementById("btn").addEventListener("click", showSearchBox);
+document.getElementById("btn").addEventListener("click", showSearchBox)

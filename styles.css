@@ -55,17 +55,24 @@ img.logo {
     font-size: 14px;
     font-family: 'Inter', serif;
     outline: none;
-    transition: all 0.3s ease-in-out;
+    padding: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out, visibility 0.3s;
 }
 
 .search-box button {
-    padding: 5px 12px;
     background-color: black;
     border-radius: 4px;
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    padding: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out, visibility 0.3s, transform 0.2s;
 }
 
 .search-box button:hover {
@@ -76,7 +83,7 @@ img.logo {
 .search {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 5px;
 }
 
 .search img {
@@ -90,15 +97,32 @@ img.logo {
 
 .search-box.active input {
     width: 200px;
-    visibility: visible;
     opacity: 1;
+    visibility: visible;
     padding: 5px;
 }
 
+.search-box.active button {
+    padding: 5px 12px;
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+}
+
+.search-box {
+    max-height: 50px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.search-box.active {
+    max-height: 200px;
+    transform: scale(1.05);
+}
+
 .hidden {
-    display: none;
     max-width: 420px;
     width: 100%;
 }
 
-/* make AI cuman buat transisi */
+/* make AI cuman buat animasiin */
